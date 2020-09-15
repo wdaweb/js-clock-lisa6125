@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        background: #dfd092;
+      }
+
+      #clock {
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        margin: auto;
+        background: rgb(255, 255, 255);
+        position: relative;
+        border: 10px solid #726945;
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.589),
+          4px 4px 20px rgba(0, 0, 0, 0.747);
+      }
+      #hour {
+        position: absolute;
+        height: 10px;
+        width: 35%;
+        background: rgb(0, 0, 0);
+        border-radius: 5px;
+        top: calc(50% - 5px);
+        left: 15%;
+        transform: rotate(0deg);
+        transform-origin: right center;
+      }
+      #minute {
+        position: absolute;
+        height: 6px;
+        width: 40%;
+        background: rgb(0, 0, 0);
+        border-radius: 3px;
+        top: calc(50% - 3px);
+        left: 10%;
+        transform: rotate(0deg);
+        transform-origin: right center;
+      }
+      #second {
+        position: absolute;
+        height: 2px;
+        width: 45%;
+        background: rgb(255, 42, 42);
+        border-radius: 2px;
+        top: calc(50% - 1px);
+        left: 5%;
+        transform: rotate(0deg);
+        transform-origin: right center;
+      }
+      .top {
+        position: absolute;
+        width: 3px;
+        height: 10px;
+        background: #000000;
+        left: 0;
+        right: 0;
+        margin: 5px auto;
+      }
+      .right {
+        position: absolute;
+        width: 10px;
+        height: 3px;
+        background: #030303;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto 5px;
+      }
+      .bottom {
+        position: absolute;
+        width: 3px;
+        height: 10px;
+        background: #000000;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: 5px auto;
+      }
+      .left {
+        position: absolute;
+        width: 10px;
+        height: 3px;
+        background: #000000;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto 5px;
+      }
+      .center {
+        height: 20px;
+        width: 20px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        background: #ffc505;
+        border-radius: 100%;
+        z-index: 999;
+      }
+      .shadow {
+        height: 290px;
+        width: 290px;
+        position: absolute;
+        left: 95px;
+        top: 95px;
+        transform: rotate(135deg);
+        background: linear-gradient(transparent, rgba(114, 114, 114, 0.151));
+      }
+    </style>
+  </head>
+  <body>
+    <div id="clock">
+      <div class="top"></div>
+      <div class="right"></div>
+      <div class="bottom"></div>
+      <div class="left"></div>
+      <div class="center"></div>
+      <div id="hour"></div>
+      <div id="minute"></div>
+      <div id="second"></div>
+      <div class="shadow"></div>
+    </div>
+    <script>
+      const hour = document.getElementById("hour");
+      const minute = document.getElementById("minute");
+      const second = document.getElementById("second");
+
+      const setclock = () => {
+        let now = new Date();
+        let h = now.getHours();
+        let m = now.getMinutes();
+        let s = now.getSeconds();
+
+        hour.style.transform = `rotate(${h * 30 + 90}deg)`;
+        minute.style.transform = `rotate(${m * 6 + 90}deg)`;
+        second.style.transform = `rotate(${s * 6 + 90}deg)`;
+      };
+
+      setInterval(setclock, 1000);
+      setclock();
+    </script>
+  </body>
+</html>
