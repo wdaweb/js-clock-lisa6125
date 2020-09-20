@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                text-decoration: none;
+                list-style: none;
+                font-family: 'Rajdhani', sans-serif;
+            }
+            body,
+            html {
+                height: 100%;
+                background: #212121;
+            }
+            /* 外框&切換設定+ */
+            .container {
+                width: 500px;
+                height: 600px;
+                margin: 20px auto;
+                border: 4px solid #191919;
+                border-radius: 20px;
+                box-shadow: -4px -4px 10px rgba(67, 67, 67, 0.5), inset 4px 4px 10px rgba(0, 0, 0, 0.5),
+                    inset -4px -4px 10px rgba(67, 67, 67, 0.3), 4px 4px 10px rgba(0, 0, 0, 0.3);
+            }
+            nav {
+                display: flex;
+                padding: 10px;
+                height: 80px;
+                border-top-right-radius: 20px;
+                border-top-left-radius: 20px;
+                position: relative;
+            }
+            nav:after {
+                content: '';
+                width: 400px;
+                height: 1px;
+                background: rgb(216, 216, 216);
+                position: absolute;
+                top: 80px;
+                left: 45px;
+            }
+            a {
+                display: flex;
+                margin: auto;
+                color: rgb(139, 139, 139);
+                font-size: 28px;
+                font-weight: 700;
+                border-radius: 10px;
+                padding: 2px 10px;
+            }
+
+            a:hover {
+                box-shadow: inset 4px 4px 10px rgba(0, 0, 0, 0.363), inset -4px -4px 10px rgba(67, 67, 67, 0.3);
+                transition: 0.5s ease;
+                cursor: pointer;
+            }
+            a:active {
+                color: white;
+                text-shadow: 0 0 5px white, 0 0 10px white, 0 0 20px white;
+                transform: scale(1.2);
+            }
+
+            /* iframe */
+            div {
+                width: 450px;
+                height: 450px;
+                margin: 0 auto;
+            }
+            iframe {
+                margin: 10px auto;
+                width: 450px;
+                height: 450px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <a href="./clock.html" target="showFrame">clock</a>
+
+                <a href="./stepwatch.html" target="showFrame">Stopwatch</a>
+            </nav>
+
+            <div>
+                <iframe scrolling="no" src="./clock.html" frameborder="0" name="showFrame"> </iframe>
+            </div>
+        </div>
+    </body>
+</html>
